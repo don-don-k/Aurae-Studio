@@ -2,6 +2,11 @@
    Navigation oder Footer ändern? Einmal hier anpassen – gilt dann überall. */
 
 const $ = (s) => document.querySelector(s);
+/* Pfad zurück zur Startseite: "" auf der Startseite, "../" auf den Unterseiten (steht im <body data-root="…">) */
+const ROOT = document.body.dataset.root || "";
+/* Bildpfade aus data.js (z. B. "bilder/foto.jpg") gelten ab der Startseite – auf Unterseiten wird ROOT davorgesetzt.
+   Komplette Internet-Adressen (https://…) bleiben unverändert. */
+const asset = (p) => (!p || /^([a-z]+:)?\/\//i.test(p) || p.startsWith("data:") ? p : ROOT + p);
 const euro = (n) => n.toLocaleString("de-DE") + " €";
 const pad = (n) => String(n).padStart(2, "0");
 const fmtDur = (m) => (m >= 60 ? `${Math.floor(m / 60)} Std.${m % 60 ? " " + (m % 60) + " Min." : ""}` : `${m} Min.`);
@@ -42,25 +47,25 @@ function groupItems(items) {
 
   /* ---------- Header ---------- */
   const catLinks = CATEGORIES.map(
-    (c) => `<a href="${c.page}"${c.id === current ? ' aria-current="page"' : ""}>${c.nav}</a>`
+    (c) => `<a href="${ROOT}${c.page}"${c.id === current ? ' aria-current="page"' : ""}>${c.nav}</a>`
   ).join("");
 
   const header = `
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo">${CONFIG.studioName}</a>
+      <a href="${ROOT || "./"}" class="nav__logo">${CONFIG.studioName}</a>
       <nav class="nav__links" id="navLinks" aria-label="Hauptnavigation">
         ${catLinks}
-        <a href="index.html#preise">Preise</a>
-        <a href="index.html#ueber-mich">Über mich</a>
-        <a href="index.html#standort">Standort</a>
-        <a href="index.html#termin" class="btn btn--small nav__cta">Termin anfragen</a>
+        <a href="${ROOT}#preise">Preise</a>
+        <a href="${ROOT}#ueber-mich">Über mich</a>
+        <a href="${ROOT}#standort">Standort</a>
+        <a href="${ROOT}#termin" class="btn btn--small nav__cta">Termin anfragen</a>
       </nav>
       <button class="nav__burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>`;
+  </header>`;;
 
   /* ---------- Footer ---------- */
   const footer = `
@@ -68,12 +73,12 @@ function groupItems(items) {
     <div class="container footer__inner">
       <span>© ${new Date().getFullYear()} ${CONFIG.studioName}</span>
       <span>
-        <a href="impressum.html">Impressum</a> ·
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="${ROOT}impressum.html">Impressum</a> ·
+        <a href="${ROOT}datenschutz.html">Datenschutz</a>
       </span>
     </div>
   </footer>
-  <a class="fab" id="fab" href="index.html#termin" aria-label="Termin anfragen">Termin anfragen</a>`;
+  <a class="fab" id="fab" href="${ROOT}#termin" aria-label="Termin anfragen">Termin anfragen</a>`;
 
   $("#site-header").outerHTML = header;
   $("#site-footer").outerHTML = footer;

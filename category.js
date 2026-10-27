@@ -3,12 +3,12 @@
 
 const cat = catById(document.body.dataset.category);
 const services = servicesOf(cat.id);
-const bookLink = (key) => `index.html?s=${encodeURIComponent(key)}#termin`;
+const bookLink = (key) => `${ROOT}?s=${encodeURIComponent(key)}#termin`;
 
 document.title = `${cat.title} – ${CONFIG.studioName}`;
 
 /* ---------- Hintergrundbild im Seitenkopf (cat.bg, sonst CONFIG.logoImg) ---------- */
-const bgImg = cat.bg || CONFIG.logoImg;
+const bgImg = asset(cat.bg || CONFIG.logoImg);
 if (bgImg) {
   $(".page-hero").insertAdjacentHTML(
     "afterbegin",
@@ -57,7 +57,7 @@ $("#treatments").innerHTML = services.map((s) => {
   const hasGroups = groups.some((g) => g.group);
   return `
   <article class="treat${s.img ? "" : " treat--plain"}" id="${s.id}">
-    ${s.img ? `<img class="treat__img" src="${s.img}" alt="${s.title}" loading="lazy" />` : ""}
+    ${s.img ? `<img class="treat__img" src="${asset(s.img)}" alt="${s.title}" loading="lazy" />` : ""}
     <div class="treat__body">
       <h2>${s.title}</h2>
       <p class="treat__text">${s.text}</p>
@@ -78,8 +78,8 @@ const prev = CATEGORIES[(idx - 1 + CATEGORIES.length) % CATEGORIES.length];
 const next = CATEGORIES[(idx + 1) % CATEGORIES.length];
 
 $("#otherCats").innerHTML = CATEGORIES.filter((c) => c.id !== cat.id).map((c) => `
-  <a class="card card--link" href="${c.page}">
-    <img src="${c.img}" alt="${c.title}" loading="lazy" />
+  <a class="card card--link" href="${ROOT}${c.page}">
+    <img src="${asset(c.img)}" alt="${c.title}" loading="lazy" />
     <div class="card__body">
       <h3>${c.title}</h3>
       <p>${c.teaser}</p>
@@ -88,6 +88,6 @@ $("#otherCats").innerHTML = CATEGORIES.filter((c) => c.id !== cat.id).map((c) =>
   </a>`).join("");
 
 $("#pager").innerHTML = `
-  <a class="pager__link" href="${prev.page}">← ${prev.title}</a>
-  <a class="pager__link pager__link--center" href="index.html#behandlungen">Zur Übersicht</a>
-  <a class="pager__link" href="${next.page}">${next.title} →</a>`;
+  <a class="pager__link" href="${ROOT}${prev.page}">← ${prev.title}</a>
+  <a class="pager__link pager__link--center" href="${ROOT}#behandlungen">Zur Übersicht</a>
+  <a class="pager__link" href="${ROOT}${next.page}">${next.title} →</a>`;

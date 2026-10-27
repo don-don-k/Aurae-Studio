@@ -206,19 +206,39 @@ if (CONFIG.whatsapp) {
   $(".send").classList.add("send--single");
 }
 
-$("#sendIG").addEventListener("click", () => {
+/* Text in die Zwischenablage kopieren (mit Fallback für ältere Browser / unsichere Seiten) */
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) { /* weiter mit Fallback */ }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:-9999px;opacity:0";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch (e) { return false; }
+}
+
+
+/* Instagram kann keinen Text vorausfüllen: Nachricht kopieren, Hinweis zeigen, danach die DM öffnen.
+   Weiterleitung im selben Tab – Popup-Blocker verhindern window.open nach einer Verzögerung oft,
+   und am Handy öffnet sich dabei direkt die Instagram-App. */
+$("#sendIG").addEventListener("click", async (e) => {
   if (!validate()) return;
-  // Instagram kann keinen Text vorausfüllen -> Nachricht in die Zwischenablage, dann DM öffnen
-  const msg = buildMessage();
-  window.open(`https://ig.me/m/${CONFIG.instagram}`, "_blank", "noopener");
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(msg).then(
-      () => toast("Anfrage kopiert – füge sie in der Instagram-DM einfach ein. 💬"),
-      () => toast("Bitte schreib uns in der DM deinen Wunschtermin.")
-    );
-  } else {
-    toast("Bitte schreib uns in der DM deinen Wunschtermin.");
-  }
+  const btn = e.currentTarget;
+  btn.disabled = true;                       // kein Doppelklick während der Weiterleitung
+  const copied = await copyText(buildMessage());
+  toast(copied
+    ? "✓ Nachricht kopiert! Bitte bei Instagram einfach einfügen."
+    : "Bitte schreib uns in der DM deinen Wunschtermin.");
+  setTimeout(() => {
+    window.location.href = `https://ig.me/m/${CONFIG.instagram}`;
+    btn.disabled = false;                    // falls man mit „Zurück" wiederkommt
+  }, copied ? 1500 : 2200);
 });
 
 /* ---------- Vorauswahl über Link, z. B. index.html?s=korean:0#termin ---------- */
@@ -226,6 +246,7 @@ const preset = new URLSearchParams(location.search).get("s");
 if (preset && ITEMS[preset]) {
   setService(preset);
   $("#termin").scrollIntoView();
+   history.replaceState(null, "", location.pathname + "#termin");   // „?s=…" wieder aus der Adresszeile entfernen
 }
 
 /* ---------- Standort ---------- */

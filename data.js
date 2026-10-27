@@ -67,20 +67,20 @@ const HERO_SLIDER = {
    (ohne bg wird logoImg von oben verwendet). */
 const CATEGORIES = [
   {
-    id: "wimpern", page: "wimpern.html", title: "Wimpern", nav: "Wimpern",
-    img: "bilder/wimpern/verlängerung/wimp-verl1.jpg",
+    id: "wimpern", page: "Wimpern/", title: "Wimpern", nav: "Wimpern",
+    img: "../bilder/wimpern/verlängerung/wimp-verl1.jpg",
     teaser: "Mehr Schwung, Länge und Fülle, von natürlich bis glamourös.",
     intro: "Ob Extensions oder Lifting deiner eigenen Wimpern: Such dir die Behandlung aus, die zu deinem Alltag passt. Wir beraten dich gerne vor Ort.",
   },
   {
-    id: "brauen", page: "brauen.html", title: "Augenbrauen", nav: "Brauen",
-    img: "bilder/brows/browlift3.jpg",
+    id: "brauen", page: "Brauen/", title: "Augenbrauen", nav: "Brauen",
+    img: "../bilder/brows/browlift3.jpg",
     teaser: "Gepflegte, volle Brauen, die dein Gesicht umrahmen.",
     intro: "Für einen offenen Blick und einen gepflegten Look: Hier findest du unsere Behandlungen für deine Augenbrauen.",
   },
   {
-    id: "gesicht", page: "gesicht.html", title: "Gesichtsbehandlungen", nav: "Gesicht",
-    img: "bilder/gesicht/Gesichtsbehandlung-backgr.jpg",
+    id: "gesicht", page: "Gesicht/", title: "Gesichtsbehandlungen", nav: "Gesicht",
+    img: "../bilder/gesicht/Gesichtsbehandlung-backgr.jpg",
     teaser: "Strahlende, frische Haut mit sanften Wohlfühl-Behandlungen.",
     intro: "Von sanfter Tiefenreinigung bis zur intensiven Hauterneuerung: Wähle die Behandlung, die deiner Haut gerade guttut.",
   },
