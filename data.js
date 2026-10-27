@@ -15,9 +15,9 @@ const CONFIG = {
   // Dann erscheinen der WhatsApp-Button und der WhatsApp-Link automatisch wieder.
   whatsapp: "",
   // Instagram-Name OHNE @
-  instagram: "deinstudio",
+  instagram: "auraestudiio",
 
-  address: "Musterstraße 12, 12345 Musterstadt",
+  address: "O7 28, Mannheim",
   tips: [
     "Parkplätze direkt vor dem Haus",
     "Bus-Haltestelle „Musterplatz“ in 2 Minuten zu Fuß",
@@ -27,11 +27,11 @@ const CONFIG = {
   // Öffnungszeiten: Wochentag (0 = Sonntag … 6 = Samstag) -> [Start, Ende] in Stunden, oder null = geschlossen
   hours: {
     1: null,
-    2: [10, 18],
-    3: [10, 18],
-    4: [10, 19],
-    5: [10, 18],
-    6: [10, 15],
+    2: [9, 18],
+    3: [9, 18],
+    4: [9, 19],
+    5: [9, 18],
+    6: [9, 18],
     0: null,
   },
   slotStepMinutes: 30,   // Abstand der wählbaren Startzeiten
