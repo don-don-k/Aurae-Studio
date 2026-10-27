@@ -19,9 +19,10 @@ const CONFIG = {
 
   address: "O7 28, Mannheim",
   tips: [
-    "Parkplätze direkt vor dem Haus",
-    "Bus-Haltestelle „Musterplatz“ in 2 Minuten zu Fuß",
-    "Klingel: AURAË STUDIO, 2. Etage",
+    "<strong>Zugang:</strong> Durch das JOËL Studio (im hinteren Bereich des Gebäudes)",
+    "<strong>Parken:</strong> Tiefgarage Q6 Q7, Parkhaus N7 & Parkhaus N6 Komfort",
+    "<strong>ÖPNV:</strong> Haltestellen Strohmarkt & Paradeplatz in wenigen Gehminuten",
+    "<strong>Zu Fuß:</strong> Vom Hauptbahnhof ca. 10 Gehminuten",
   ],
 
   // Öffnungszeiten: Wochentag (0 = Sonntag … 6 = Samstag) -> [Start, Ende] in Stunden, oder null = geschlossen
