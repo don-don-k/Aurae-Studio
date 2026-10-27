@@ -52,10 +52,10 @@ const CONFIG = {
    label = kleine Beschriftung unten im Bild (kann auch weggelassen werden).
    Beliebig viele Einträge möglich; mit nur einem Eintrag wird nicht gewechselt. */
 const HERO_SLIDES = [
+  { img: "bilder/gesicht/aqua/gesicht1.jpg", alt: "Beispiel: Aquafacial", label: "Aquafacial" },
   { img: "bilder/wimpern/verlängerung/wimp-verl1.2.jpg", alt: "Beispiel: Wimpernverlängerung", label: "Wimpernverlängerung" },
   { img: "bilder/wimpern/lift/wimpernlift1.jpg", alt: "Beispiel: Korean Lashlifting", label: "Korean Lashlifting" },
   { img: "bilder/brows/browlift3.jpg", alt: "Beispiel: Browlifting", label: "Browlifting" },
-  { img: "bilder/gesicht/aqua/gesicht1.jpg", alt: "Beispiel: Aquafacial", label: "Aquafacial" },
 ];
 const HERO_SLIDER = {
   autoplay: true,      // false = kein automatischer Wechsel
