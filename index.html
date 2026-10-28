@@ -1,298 +1,187 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AURAË STUDIO – Wimpern, Brauen & Gesichtsbehandlungen</title>
-    <meta
-      name="description"
-      content="Wimpernverlängerung, Lashlifting, Korean Lashlifting, Browlifting, Microneedling und Aquafacial. Termin ganz einfach per Instagram-DM anfragen."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="pages.css" />
-  </head>
-  <body>
-    <div id="site-header"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AURAË STUDIO – Wimpern, Brauen & Gesichtsbehandlungen</title>
+  <meta name="description" content="Wimpernverlängerung, Lashlifting, Korean Lashlifting, Browlifting, Microneedling und Aquafacial. Termin ganz einfach per Instagram-DM anfragen." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
 
-    <main>
-      <!-- ============ HERO ============ -->
-      <section class="hero">
-        <!-- Logo im Hintergrund (dekorativ) -->
-        <div class="hero__bg" aria-hidden="true">
-          <img src="bilder/9f36e7a3-2c84-438d-8a51-423032779e10.jpg" alt="" />
-        </div>
+  <div id="site-header"></div>
 
-        <div class="container hero__inner">
-          <div class="hero__text">
-            <p class="eyebrow">Wimpern · Brauen · Haut</p>
-            <h1>Entdecke deine <em>schönste</em> Seite.</h1>
-            <p class="hero__lead">
-              Sanfte Behandlungen in entspannter Wohlfühl-Atmosphäre – ganz auf
-              dich abgestimmt. Dein Termin ist in unter einer Minute angefragt.
-            </p>
-            <div class="hero__actions">
-              <a href="#termin" class="btn">Termin anfragen</a>
-              <a href="#behandlungen" class="btn btn--ghost"
-                >Behandlungen ansehen</a
-              >
-            </div>
-            <ul class="hero__facts">
-              <li>✓ Persönliche Beratung</li>
-              <li>✓ Hygiene &amp; Sauberkeit</li>
-              <li>✓ Persönliche Antwort per Instagram-DM</li>
-            </ul>
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <!-- Logo im Hintergrund (dekorativ) -->
+      <div class="hero__bg" aria-hidden="true">
+        <img src="bilder/9f36e7a3-2c84-438d-8a51-423032779e10.jpg" alt="" />
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Wimpern · Brauen · Haut</p>
+          <h1>Entdecke deine <em>schönste</em> Seite.</h1>
+          <p class="hero__lead">Sanfte Behandlungen in entspannter Wohlfühl-Atmosphäre – ganz auf dich abgestimmt. Dein Termin ist in unter einer Minute angefragt.</p>
+          <div class="hero__actions">
+            <a href="#termin" class="btn">Termin anfragen</a>
+            <a href="#behandlungen" class="btn btn--ghost">Behandlungen ansehen</a>
           </div>
-          <!-- Bilder-Slider vorne (Bilder stehen in data.js unter HERO_SLIDES) -->
-          <div
-            class="hero__img slider"
-            id="heroSlider"
-            role="region"
-            aria-roledescription="Karussell"
-            aria-label="Beispiele unserer Arbeit"
-          >
-            <div class="slider__track" tabindex="0"></div>
-            <button
-              type="button"
-              class="slider__btn slider__btn--prev"
-              aria-label="Vorheriges Bild"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              class="slider__btn slider__btn--next"
-              aria-label="Nächstes Bild"
-            >
-              ›
-            </button>
-            <div class="slider__dots"></div>
-          </div>
+          <ul class="hero__facts">
+            <li>✓ Persönliche Beratung</li>
+            <li>✓ Hygiene &amp; Sauberkeit</li>
+            <li>✓ Persönliche Antwort per Instagram-DM</li>
+          </ul>
         </div>
-      </section>
-
-      <!-- ============ BEHANDLUNGEN (Oberkategorien) ============ -->
-      <section class="section" id="behandlungen">
-        <div class="container">
-          <p class="eyebrow center">Unsere Leistungen</p>
-          <h2 class="center">Was darf es sein?</h2>
-          <p class="section__lead center">
-            Such dir eine Kategorie aus, dort findest du alle Behandlungen mit
-            Details und Preisen.
-          </p>
-          <div class="cards" id="categoryCards"></div>
+        <!-- Bilder-Slider vorne (Bilder stehen in data.js unter HERO_SLIDES) -->
+        <div class="hero__img slider" id="heroSlider" role="region" aria-roledescription="Karussell" aria-label="Beispiele unserer Arbeit">
+          <div class="slider__track" tabindex="0"></div>
+          <button type="button" class="slider__btn slider__btn--prev" aria-label="Vorheriges Bild">‹</button>
+          <button type="button" class="slider__btn slider__btn--next" aria-label="Nächstes Bild">›</button>
+          <div class="slider__dots"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ============ PREISE ============ -->
-      <section class="section section--tint" id="preise">
-        <div class="container container--narrow">
-          <p class="eyebrow center">Transparent &amp; fair</p>
-          <h2 class="center">Preisliste</h2>
-          <div
-            class="tabs"
-            id="priceTabs"
-            role="tablist"
-            aria-label="Preiskategorien"
-          ></div>
-          <div class="price" id="priceList"></div>
-          <p class="note center">
-            Alle Preise in Euro inkl. MwSt. Die genaue Dauer kann je nach
-            Aufwand leicht abweichen.
-          </p>
-        </div>
-      </section>
+    <!-- ============ BEHANDLUNGEN (Oberkategorien) ============ -->
+    <section class="section" id="behandlungen">
+      <div class="container">
+        <p class="eyebrow center">Unsere Leistungen</p>
+        <h2 class="center">Was darf es sein?</h2>
+        <p class="section__lead center">Such dir eine Kategorie aus, dort findest du alle Behandlungen mit Details und Preisen.</p>
+        <div class="cards" id="categoryCards"></div>
+      </div>
+    </section>
 
-      <!-- ============ ÜBER MICH ============
+    <!-- ============ PREISE ============ -->
+    <section class="section section--tint" id="preise">
+      <div class="container container--narrow">
+        <p class="eyebrow center">Transparent &amp; fair</p>
+        <h2 class="center">Preisliste</h2>
+        <div class="tabs" id="priceTabs" role="tablist" aria-label="Preiskategorien"></div>
+        <div class="price" id="priceList"></div>
+        <p class="note center">Alle Preise in Euro inkl. MwSt. Die genaue Dauer kann je nach Aufwand leicht abweichen.</p>
+      </div>
+    </section>
+
+    <!-- ============ ÜBER MICH ============
          Text und Foto einfach ersetzen. Foto: Datei in den Ordner "bilder" legen
          und bei src den Pfad ändern, z. B. src="bilder/ueber-mich.jpg" -->
-      <section class="section" id="ueber-mich">
-        <div class="container about">
-          <div class="about__media">
-            <img
-              src="bilder/über-mich.jpg"
-              alt="Foto von [Name]"
-              loading="lazy"
-            />
-          </div>
-          <div class="about__text">
-            <p class="eyebrow">Über mich <br />Schön, dass du hier bist.</p>
-            <h2>Hi, ich bin Armonda,</h2>
-            <p>die Gründerin von AURAË STUDIO.</p>
-            <p>Schönheit bedeutet für mich, die eigene natürliche Ausstrahlung zu unterstreichen und sich rundum wohlzufühlen. </p>
-            <p>Mit viel Liebe zum Detail und einem Blick für Ästhetik möchte ich dir einen Ort bieten, an dem du dich entspannen, wohlfühlen und einfach Zeit für dich genießen kannst.</p>
-            <p>Ich freue mich darauf, dich bei <strong>AURAË STUDIO</strong> willkommen zu heißen. <strong>♡</strong></p>
-            <a href="#termin" class="btn btn--ghost">Termin anfragen</a>
-          </div>
+    <section class="section" id="ueber-mich">
+      <div class="container about">
+        <div class="about__media">
+          <img src="bilder/über-mich.jpg" alt="Foto von [Name]" loading="lazy" />
         </div>
-      </section>
+        <div class="about__text">
+          <p class="eyebrow">Über mich <br />Schön, dass du hier bist.</p>
+          <h2>Hi, ich bin Armonda,</h2>
+          <p>die Gründerin von AURAË STUDIO.</p>
+          <p>Schönheit bedeutet für mich, die eigene natürliche Ausstrahlung zu unterstreichen und sich rundum wohlzufühlen.</p>
+          <p>Mit viel Liebe zum Detail und einem Blick für Ästhetik möchte ich dir einen Ort bieten, an dem du dich entspannen, wohlfühlen und einfach Zeit für dich genießen kannst.</p>
+          <p>Ich freue mich darauf, dich bei <strong>AURAË STUDIO</strong> willkommen zu heißen. <strong>♡</strong></p>
+          <a href="#termin" class="btn btn--ghost">Termin anfragen</a>
+        </div>
+      </div>
+    </section>
 
-      <!-- ============ TERMIN ============ -->
-      <section class="section section--tint" id="termin">
-        <div class="container container--narrow">
-          <p class="eyebrow center">In 4 Schritten</p>
-          <h2 class="center">Termin anfragen</h2>
-          <p class="section__lead center">
-            Du wählst Behandlung und Wunschzeit – wir bestätigen dir den Termin
-            persönlich per Instagram-DM.
-          </p>
+    <!-- ============ TERMIN ============ -->
+    <section class="section section--tint" id="termin">
+      <div class="container container--narrow">
+        <p class="eyebrow center">In 4 Schritten</p>
+        <h2 class="center">Termin anfragen</h2>
+        <p class="section__lead center">Du wählst Behandlung und Wunschzeit – wir bestätigen dir den Termin persönlich per Instagram-DM.</p>
 
-          <form class="booking" id="bookingForm" novalidate>
-            <div class="step">
-              <h3><span class="step__num">1</span> Behandlung</h3>
-              <select
-                id="serviceSelect"
-                required
-                aria-label="Behandlung wählen"
-              ></select>
-              <p class="hint" id="serviceInfo"></p>
+        <form class="booking" id="bookingForm" novalidate>
+
+          <div class="step">
+            <h3><span class="step__num">1</span> Behandlung</h3>
+            <select id="serviceSelect" required aria-label="Behandlung wählen"></select>
+            <p class="hint" id="serviceInfo"></p>
+          </div>
+
+          <div class="step">
+            <h3><span class="step__num">2</span> Wunschtag</h3>
+            <div class="days" id="dayChips" role="radiogroup" aria-label="Tag wählen"></div>
+          </div>
+
+          <div class="step">
+            <h3><span class="step__num">3</span> Uhrzeit</h3>
+            <div class="slots" id="slotChips" role="radiogroup" aria-label="Uhrzeit wählen">
+              <p class="hint">Bitte zuerst Behandlung und Tag wählen.</p>
             </div>
+          </div>
 
-            <div class="step">
-              <h3><span class="step__num">2</span> Wunschtag</h3>
-              <div
-                class="days"
-                id="dayChips"
-                role="radiogroup"
-                aria-label="Tag wählen"
-              ></div>
+          <div class="step">
+            <h3><span class="step__num">4</span> Deine Angaben</h3>
+            <div class="fields">
+              <label><span>Dein Vorname</span>
+                <input type="text" id="name" placeholder="z. B. Lena" autocomplete="given-name" required />
+              </label>
+              <label><span>Anmerkung <span class="opt">(optional)</span></span>
+                <textarea id="note" rows="2" placeholder="z. B. Erstbesuch, Allergien, Wunschlook …"></textarea>
+              </label>
             </div>
+          </div>
 
-            <div class="step">
-              <h3><span class="step__num">3</span> Uhrzeit</h3>
-              <div
-                class="slots"
-                id="slotChips"
-                role="radiogroup"
-                aria-label="Uhrzeit wählen"
-              >
-                <p class="hint">Bitte zuerst Behandlung und Tag wählen.</p>
-              </div>
-            </div>
+          <div class="summary" id="summary" hidden></div>
 
-            <div class="step">
-              <h3><span class="step__num">4</span> Deine Angaben</h3>
-              <div class="fields">
-                <label
-                  ><span>Dein Vorname</span>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="z. B. Lena"
-                    autocomplete="given-name"
-                    required
-                  />
-                </label>
-                <label
-                  ><span>Anmerkung <span class="opt">(optional)</span></span>
-                  <textarea
-                    id="note"
-                    rows="2"
-                    placeholder="z. B. Erstbesuch, Allergien, Wunschlook …"
-                  ></textarea>
-                </label>
-              </div>
-            </div>
+          <div class="send">
+            <button type="button" class="btn btn--wa" id="sendWA">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200Zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.300 5.300 0 0 0 1.100 2.800 12 12 0 0 0 4.600 4c1.700.7 2.400.8 3.200.7.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3Z"/></svg>
+              Per WhatsApp anfragen
+            </button>
+            <button type="button" class="btn btn--ig" id="sendIG">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.500A4.500 4.500 0 1 1 7.500 12 4.500 4.500 0 0 1 12 7.500Zm0 2A2.500 2.500 0 1 0 14.500 12 2.500 2.500 0 0 0 12 9.500Zm5-3.800a1.100 1.100 0 1 1-1.100 1.100A1.100 1.100 0 0 1 17 5.700Z"/></svg>
+              Per Instagram-DM anfragen
+            </button>
+            <p class="send__tip">Nach dem Klick kopieren wir deine Nachricht automatisch. <u><strong>Du kannst sie bei Instagram einfach einfügen</strong></u> &amp; absenden!</p>
+          </div>
+          <p class="note center">Das ist eine Terminanfrage – verbindlich ist dein Termin erst, wenn wir ihn dir bestätigt haben. 🌸</p>
+        </form>
+      </div>
+    </section>
 
-            <div class="summary" id="summary" hidden></div>
+    <!-- ============ STANDORT ============ -->
+    <section class="section" id="standort">
+      <div class="container">
+        <p class="eyebrow center">So findest du uns</p>
+        <h2 class="center">Standort &amp; Öffnungszeiten</h2>
+        <div class="location">
+          <div class="location__map">
+            <div class="map__ph" id="mapPh"><p>Die Karte wird von Google Maps geladen. Dabei wird deine IP-Adresse an Google übertragen.</p><button type="button" class="btn btn--small" id="mapLoad">Karte anzeigen</button></div>
+          </div>
+          <div class="location__info">
+            <h3>Adresse</h3>
+            <p id="addressText"></p>
+            <a class="btn btn--small" id="routeBtn" target="_blank" rel="noopener">Route planen</a>
 
-            <div class="send">
-              <button type="button" class="btn btn--wa" id="sendWA">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200Zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.300 5.300 0 0 0 1.100 2.800 12 12 0 0 0 4.600 4c1.700.7 2.400.8 3.200.7.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3Z"
-                  />
-                </svg>
-                Per WhatsApp anfragen
-              </button>
-              <button type="button" class="btn btn--ig" id="sendIG">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.500A4.500 4.500 0 1 1 7.500 12 4.500 4.500 0 0 1 12 7.500Zm0 2A2.500 2.500 0 1 0 14.500 12 2.500 2.500 0 0 0 12 9.500Zm5-3.800a1.100 1.100 0 1 1-1.100 1.100A1.100 1.100 0 0 1 17 5.700Z"
-                  />
-                </svg>
-                Per Instagram-DM anfragen
-              </button>
-            </div>
-            <p class="hint center" style="margin-top: 10px; font-size: 0.85rem">
-              Nach dem Klick kopieren wir
-              deine Nachricht automatisch. <u><strong>Du kannst sie bei Instagram einfach
-              einfügen</strong></u> &amp; absenden!
+            <h3>Öffnungszeiten</h3>
+            <ul class="hours" id="hoursList"></ul>
+
+            <h3>Anfahrt</h3>
+            <ul class="tips" id="tipsList"></ul>
+
+            <h3>Kontakt</h3>
+            <p>
+              <a id="waLink" target="_blank" rel="noopener">WhatsApp</a><span id="contactSep"> · </span>
+              <a id="igLink" target="_blank" rel="noopener">Instagram</a>
             </p>
-            <p class="note center">
-              Das ist eine Terminanfrage – verbindlich ist dein Termin erst,
-              wenn wir ihn dir bestätigt haben. 🌸
-            </p>
-          </form>
-        </div>
-      </section>
-
-      <!-- ============ STANDORT ============ -->
-      <section class="section" id="standort">
-        <div class="container">
-          <p class="eyebrow center">So findest du uns</p>
-          <h2 class="center">Standort &amp; Öffnungszeiten</h2>
-          <div class="location">
-            <div class="location__map">
-              <iframe
-                id="mapFrame"
-                title="Karte zum Studio"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div class="location__info">
-              <h3>Adresse</h3>
-              <p id="addressText"></p>
-              <a
-                class="btn btn--small"
-                id="routeBtn"
-                target="_blank"
-                rel="noopener"
-                >Route planen</a
-              >
-
-              <h3>Öffnungszeiten</h3>
-              <ul class="hours" id="hoursList"></ul>
-
-              <h3>Anfahrt</h3>
-              <ul class="tips" id="tipsList"></ul>
-
-              <h3>Kontakt</h3>
-              <p>
-                <a id="waLink" target="_blank" rel="noopener">WhatsApp</a
-                ><span id="contactSep"> · </span>
-                <a id="igLink" target="_blank" rel="noopener">Instagram</a>
-              </p>
-            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <div id="site-footer"></div>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
 
-    <script src="data.js"></script>
-    <script src="common.js"></script>
-    <script src="script.js"></script>
-    <script src="slider.js"></script>
-  </body>
+  <div id="site-footer"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="script.js"></script>
+  <script src="slider.js"></script>
+</body>
 </html>

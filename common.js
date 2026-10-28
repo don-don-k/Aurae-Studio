@@ -65,7 +65,7 @@ function groupItems(items) {
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>`;;
+  </header>`;
 
   /* ---------- Footer ---------- */
   const footer = `
@@ -73,8 +73,8 @@ function groupItems(items) {
     <div class="container footer__inner">
       <span>© ${new Date().getFullYear()} ${CONFIG.studioName}</span>
       <span>
-        <a href="${ROOT}impressum.html">Impressum</a> ·
-        <a href="${ROOT}datenschutz.html">Datenschutz</a>
+        <a href="${ROOT}Impressum/">Impressum</a> ·
+        <a href="${ROOT}Datenschutz/">Datenschutz</a>
       </span>
     </div>
   </footer>

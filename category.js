@@ -1,4 +1,4 @@
-/* Logik der Kategorie-Seiten (wimpern.html, brauen.html, gesicht.html).
+/* Logik der Kategorie-Seiten (wimpern/, brauen/, gesicht/).
    Welche Kategorie angezeigt wird, steht im <body data-category="…">. */
 
 const cat = catById(document.body.dataset.category);

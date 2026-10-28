@@ -93,8 +93,12 @@ function buildDays() {
   const now = new Date();
   for (let i = 0; i <= CONFIG.daysAhead; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
-    if (!CONFIG.hours[d.getDay()]) continue;
+    const h = CONFIG.hours[d.getDay()];
+    if (!h) continue;
     if (CONFIG.booked[isoDate(d)] === "ganztags") continue;
+    /* Heute/morgen weglassen, wenn die Öffnungszeit schon vorbei bzw. die Vorlaufzeit nicht mehr reicht */
+    const closesAt = new Date(d.getFullYear(), d.getMonth(), d.getDate(), h[1]).getTime();
+    if (closesAt <= Date.now() + CONFIG.minLeadHours * 3600 * 1000) continue;
     out.push(d);
   }
   return out;
@@ -223,7 +227,6 @@ async function copyText(text) {
   } catch (e) { return false; }
 }
 
-
 /* Instagram kann keinen Text vorausfüllen: Nachricht kopieren, Hinweis zeigen, danach die DM öffnen.
    Weiterleitung im selben Tab – Popup-Blocker verhindern window.open nach einer Verzögerung oft,
    und am Handy öffnet sich dabei direkt die Instagram-App. */
@@ -241,17 +244,22 @@ $("#sendIG").addEventListener("click", async (e) => {
   }, copied ? 1500 : 2200);
 });
 
-/* ---------- Vorauswahl über Link, z. B. index.html?s=korean:0#termin ---------- */
+/* ---------- Vorauswahl über Link, z. B. /?s=korean:0#termin (kommt von den Kategorie-Seiten) ---------- */
 const preset = new URLSearchParams(location.search).get("s");
 if (preset && ITEMS[preset]) {
   setService(preset);
   $("#termin").scrollIntoView();
-   history.replaceState(null, "", location.pathname + "#termin");   // „?s=…" wieder aus der Adresszeile entfernen
+  history.replaceState(null, "", location.pathname + "#termin");   // „?s=…" wieder aus der Adresszeile entfernen
 }
 
 /* ---------- Standort ---------- */
 const q = encodeURIComponent(CONFIG.address);
-$("#mapFrame").src = `https://www.google.com/maps?q=${q}&output=embed`;
+$("#mapLoad").addEventListener("click", () => {
+  const f = document.createElement("iframe");
+  f.title = "Karte zum Studio"; f.referrerPolicy = "no-referrer-when-downgrade";
+  f.src = `https://www.google.com/maps?q=${q}&output=embed`;
+  $("#mapPh").replaceWith(f);
+});
 $("#routeBtn").href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
 $("#addressText").innerHTML = CONFIG.address.replace(/, /, "<br>");
 $("#tipsList").innerHTML = CONFIG.tips.map((t) => `<li>${t}</li>`).join("");
